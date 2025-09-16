@@ -1,7 +1,7 @@
 on:
   workflow_call:
 jobs:
-  vite:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -10,7 +10,7 @@ jobs:
           node-version-file: .node-version
       - run: npm install --omit=dev
       - run: npm run build
-  eslint:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -19,7 +19,7 @@ jobs:
           node-version-file: .node-version
       - run: npm install
       - run: npm run lint
-  stylelint:
+  lint-css:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -28,7 +28,7 @@ jobs:
           node-version-file: .node-version
       - run: npm install
       - run: npm run lint:css
-  vitest:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
